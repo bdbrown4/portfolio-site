@@ -68,7 +68,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex items-center justify-center gap-4">
-            {icons.map((icon) => <a href={icon.link} target="_blank" rel="noreferrer">{icon.element}</a>)}
+            {icons.map((icon, key) => <a key={key} href={icon.link} target="_blank" rel="noreferrer">{icon.element}</a>)}
           </div>
         </div>
       </main>
