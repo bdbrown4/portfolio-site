@@ -3,7 +3,7 @@ import { FiSun } from "react-icons/fi";
 import { FaMoon } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { api } from "~/utils/api";
-import { iconElements } from "./static-content/constants";
+import { iconElements } from "../static-content/constants";
 
 export default function Home() {
   const [toggleTheme, setToggleTheme] = useState(false);
