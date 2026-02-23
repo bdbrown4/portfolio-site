@@ -10,6 +10,13 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "GitHub Portfolio MCP Server",
+    description:
+      "A Model Context Protocol server that exposes tools for AI agents to query GitHub repos, languages, READMEs, and profile data — built with the MCP TypeScript SDK.",
+    tags: ["MCP", "TypeScript", "AI Agents", "GitHub API"],
+    repoUrl: "https://github.com/bdbrown4/github-portfolio-mcp-server",
+  },
+  {
     title: "crypto-web-component",
     description:
       "A custom-built web component for displaying live cryptocurrency data — showcasing skills in native Web Components, shadow DOM, and real-time data fetching.",
