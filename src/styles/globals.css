@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .display-none {
