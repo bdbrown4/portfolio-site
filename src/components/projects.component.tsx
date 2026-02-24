@@ -14,8 +14,8 @@ const projects: Project[] = [
   {
     title: "RAG vs Agentic Retrieval",
     description:
-      "A live side-by-side comparison of classic RAG and a LangGraph ReAct agent, both querying a ChromaDB knowledge base built from GitHub source files. Backs an authenticated Streamlit UI with Google OAuth.",
-    tags: ["Python", "LangChain", "LangGraph", "ChromaDB", "OpenAI", "Streamlit"],
+      "A multi-page AI demo app comparing classic RAG and a LangGraph PLAN→EXECUTE→SYNTHESIZE agent on a live ChromaDB portfolio knowledge base. Features live token streaming, RAGAS evaluation, model cost comparison (GPT-4o vs GPT-4o-mini), knowledge graph explorer, LangSmith tracing, Pydantic guardrails, A/B test framework, and Google OAuth — all deployed on Streamlit Cloud.",
+    tags: ["Python", "LangChain", "LangGraph", "ChromaDB", "OpenAI", "Streamlit", "RAGAS", "Pydantic", "LangSmith"],
     repoUrl: "https://github.com/bdbrown4/rag-vs-agentic",
     demoUrl: "https://rag-vs-agentic-fmm3inchpstkf5eobfgqqb.streamlit.app",
   },
@@ -121,7 +121,7 @@ export const Projects: FC = () => {
           AI in Action
         </h2>
         <p className="mb-8 text-center text-sm dark:text-gray-400 text-gray-600">
-          A hands-on exploration of two retrieval strategies for LLM applications.
+          A full-stack AI engineering project evolving from a basic comparison to a production-grade multi-page demo — built and iterated over 8 weeks.
         </p>
 
         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
@@ -149,27 +149,43 @@ export const Projects: FC = () => {
               <h4 className="mb-2 font-semibold dark:text-white">Classic RAG</h4>
               <ul className="space-y-1 text-sm dark:text-gray-300 text-gray-700">
                 <li>✦ Single embed → retrieve top-k → generate</li>
-                <li>✦ 1 LLM call, low latency (~2s)</li>
-                <li>✦ Deterministic, cheap, predictable</li>
-                <li>✦ Struggles with multi-hop questions</li>
+                <li>✦ Pydantic guardrails + confidence gating</li>
+                <li>✦ Live token streaming to UI</li>
+                <li>✦ Deterministic, cheap, predictable (~2s)</li>
               </ul>
             </div>
             <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-              <h4 className="mb-2 font-semibold dark:text-white">Agentic ReAct</h4>
+              <h4 className="mb-2 font-semibold dark:text-white">LangGraph Agentic</h4>
               <ul className="space-y-1 text-sm dark:text-gray-300 text-gray-700">
-                <li>✦ LLM decides what &amp; when to retrieve</li>
-                <li>✦ 3–8+ LLM calls, higher latency (~10s)</li>
-                <li>✦ Handles cross-repo &amp; live GitHub queries</li>
-                <li>✦ Full reasoning trace visible in UI</li>
+                <li>✦ PLAN → EXECUTE → TOOLS → SYNTHESIZE graph</li>
+                <li>✦ Streaming plan + tool calls visible in real time</li>
+                <li>✦ Handles cross-repo &amp; multi-hop questions</li>
+                <li>✦ LangSmith traced, Pydantic validated</li>
               </ul>
             </div>
+          </div>
+
+          {/* Feature pages row */}
+          <div className="mb-4 grid gap-2 sm:grid-cols-4 text-center">
+            {[
+              { icon: "🤖", label: "RAG vs Agentic", desc: "Live streaming comparison" },
+              { icon: "📊", label: "Eval Dashboard", desc: "RAGAS faithfulness scoring" },
+              { icon: "🧪", label: "Model Comparison", desc: "Cost vs quality trade-off" },
+              { icon: "🕸️", label: "Knowledge Graph", desc: "Tech relationship explorer" },
+            ].map((p) => (
+              <div key={p.label} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <div className="text-lg">{p.icon}</div>
+                <div className="text-xs font-semibold dark:text-white mt-1">{p.label}</div>
+                <div className="text-xs dark:text-gray-400 text-gray-600">{p.desc}</div>
+              </div>
+            ))}
           </div>
 
           {/* Tech stack row */}
           <div className="border-t border-white/10 pt-4">
             <p className="mb-2 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Built with</p>
             <div className="flex flex-wrap gap-2">
-              {["Python", "LangChain", "LangGraph", "ChromaDB", "OpenAI", "Streamlit", "Google OAuth", "MCP Server", "Railway"].map((t) => (
+              {["Python", "LangChain", "LangGraph", "ChromaDB", "OpenAI", "Streamlit", "RAGAS", "Pydantic", "LangSmith", "Google OAuth", "networkx"].map((t) => (
                 <span key={t} className="rounded-full border border-white/20 px-3 py-1 text-xs dark:text-gray-300 text-gray-600">{t}</span>
               ))}
             </div>
