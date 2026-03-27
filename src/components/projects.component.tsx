@@ -12,6 +12,13 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "DELTA",
+    description:
+      "A novel AI architecture that operates on dynamic graphs with dual parallel attention across nodes and edges, tiered memory, and learned importance routing. Validated across 34 experiment phases on real FB15k-237 data — outperforming TransE, RotatE, and CompGCN baselines. 44/44 unit tests passing.",
+    tags: ["Python", "PyTorch", "Graph Neural Networks", "Attention Mechanisms", "Knowledge Graphs", "AI Research"],
+    repoUrl: "https://github.com/bdbrown4/DELTA",
+  },
+  {
     title: "RAG vs Agentic Retrieval",
     description:
       "A multi-page AI demo app comparing classic RAG and a LangGraph PLAN→EXECUTE→SYNTHESIZE agent on a live ChromaDB portfolio knowledge base. Features live token streaming, RAGAS evaluation, model cost comparison (GPT-4o vs GPT-4o-mini), knowledge graph explorer, LangSmith tracing, Pydantic guardrails, A/B test framework, and Google OAuth — all deployed on Streamlit Cloud.",
@@ -186,6 +193,117 @@ export const Projects: FC = () => {
             <p className="mb-2 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Built with</p>
             <div className="flex flex-wrap gap-2">
               {["Python", "LangChain", "LangGraph", "ChromaDB", "OpenAI", "Streamlit", "RAGAS", "Pydantic", "LangSmith", "Google OAuth", "networkx"].map((t) => (
+                <span key={t} className="rounded-full border border-white/20 px-3 py-1 text-xs dark:text-gray-300 text-gray-600">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── AI Research: DELTA deep-dive ── */}
+      <section className="w-full max-w-4xl px-4">
+        <h2 className="mb-4 text-center text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
+          AI Research
+        </h2>
+        <p className="mb-8 text-center text-sm dark:text-gray-400 text-gray-600">
+          A from-scratch AI architecture exploring whether edges deserve first-class attention — validated across 34 experiment phases with real-world knowledge graph data.
+        </p>
+
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+          {/* Header */}
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-xl font-bold dark:text-white">DELTA — Dynamic Edge-and-Node Architecture with Layered, Tiered Attention</h3>
+              <p className="mt-1 text-sm dark:text-gray-400 text-gray-600">
+                &ldquo;Reality is a graph. Language is a lossy compression of reality into sequences.&rdquo;
+              </p>
+            </div>
+            <a
+              href="https://github.com/bdbrown4/DELTA"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium dark:text-white text-gray-800 transition-colors hover:bg-white/20 border border-white/20 whitespace-nowrap"
+            >
+              <BsGithub /> Code
+            </a>
+          </div>
+
+          {/* Three-paradigm comparison */}
+          <div className="mb-6 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <h4 className="mb-2 font-semibold dark:text-white">Transformer</h4>
+              <ul className="space-y-1 text-sm dark:text-gray-300 text-gray-700">
+                <li>✦ Flat token sequences</li>
+                <li>✦ Self-attention over positions</li>
+                <li>✦ O(n²) full attention</li>
+                <li>✦ No explicit relational structure</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <h4 className="mb-2 font-semibold dark:text-white">Graph Neural Network</h4>
+              <ul className="space-y-1 text-sm dark:text-gray-300 text-gray-700">
+                <li>✦ Nodes + passive scalar edges</li>
+                <li>✦ Message passing between nodes</li>
+                <li>✦ Fixed neighborhood aggregation</li>
+                <li>✦ Edges are wires</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <h4 className="mb-2 font-semibold dark:text-white">DELTA</h4>
+              <ul className="space-y-1 text-sm dark:text-gray-300 text-gray-700">
+                <li>✦ Nodes + <strong>first-class edge features</strong></li>
+                <li>✦ <strong>Dual parallel attention</strong> (node ↔ edge)</li>
+                <li>✦ <strong>Post-attention soft gating</strong> at 50% sparsity</li>
+                <li>✦ <strong>Edge-to-edge attention</strong> enables relational reasoning</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Key results */}
+          <div className="mb-6 grid gap-2 sm:grid-cols-5 text-center">
+            {[
+              { icon: "🎯", label: "97.4% on FB15k-237", desc: "Outperforms CompGCN (96.9%)" },
+              { icon: "🔬", label: "34 Experiment Phases", desc: "Systematic validation" },
+              { icon: "⚡", label: "O(n^0.81) Scaling", desc: "Sub-linear via sparse COO" },
+              { icon: "🧪", label: "44/44 Tests Passing", desc: "Full backward compatibility" },
+              { icon: "🧠", label: "100% Compositional", desc: "Node GNNs plateau at 87.5%" },
+            ].map((r) => (
+              <div key={r.label} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <div className="text-lg">{r.icon}</div>
+                <div className="text-xs font-semibold dark:text-white mt-1">{r.label}</div>
+                <div className="text-xs dark:text-gray-400 text-gray-600">{r.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Architecture pipeline */}
+          <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
+            <p className="mb-3 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Architecture Pipeline</p>
+            <div className="flex flex-wrap items-center gap-1 text-xs dark:text-gray-300 text-gray-700">
+              {[
+                "Raw Input",
+                "Graph Constructor",
+                "BFS Partitioner",
+                "Dual Parallel Attention",
+                "Post-Attention Pruner",
+                "Reconciliation",
+                "Hierarchical Global Attention",
+                "Variational Memory Compression",
+                "Output + Updated Graph State",
+              ].map((step, i, arr) => (
+                <span key={step} className="flex items-center gap-1">
+                  <span className="rounded border border-white/20 bg-white/5 px-2 py-1">{step}</span>
+                  {i < arr.length - 1 && <span className="dark:text-gray-500 text-gray-400">→</span>}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Tech stack row */}
+          <div className="border-t border-white/10 pt-4">
+            <p className="mb-2 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Built with</p>
+            <div className="flex flex-wrap gap-2">
+              {["Python", "PyTorch", "Graph Neural Networks", "Attention Mechanisms", "Sparse COO Tensors", "Knowledge Graphs", "FB15k-237", "CUDA"].map((t) => (
                 <span key={t} className="rounded-full border border-white/20 px-3 py-1 text-xs dark:text-gray-300 text-gray-600">{t}</span>
               ))}
             </div>
