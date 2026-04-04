@@ -12,6 +12,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "DELTA",
+    description:
+      "A novel graph neural network architecture where edges are first-class computational citizens. Features self-bootstrapped graph construction (no transformer scaffold needed), edge-to-edge attention, and a reconciliation bridge for cross-stream reasoning. 40 experiment phases, competitive link prediction on FB15k-237, and +24% noise robustness over standard GNNs. Building toward 'The Brain' — a self-constructing relational reasoning system.",
+    tags: ["Python", "PyTorch", "Graph Neural Networks", "AI Research", "Knowledge Graphs"],
+    repoUrl: "https://github.com/bdbrown4/DELTA",
+    demoUrl: "https://bdbrown4.github.io/DELTA/",
+  },
+  {
     title: "RAG vs Agentic Retrieval",
     description:
       "A multi-page AI demo app comparing classic RAG and a LangGraph PLAN→EXECUTE→SYNTHESIZE agent on a live ChromaDB portfolio knowledge base. Features live token streaming, RAGAS evaluation, model cost comparison (GPT-4o vs GPT-4o-mini), knowledge graph explorer, LangSmith tracing, Pydantic guardrails, A/B test framework, and Google OAuth — all deployed on Streamlit Cloud.",

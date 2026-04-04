@@ -8,8 +8,9 @@ export const Introduction: FC = () => {
             </h1>
             <div className="flex flex-col items-center gap-2">
                 <p className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl dark:text-white text-center">
-                    Full-stack developer exploring the frontier of AI &mdash; from RAG
-                    pipelines and MCP servers to agentic retrieval systems.
+                    Full-stack developer and AI researcher &mdash; from RAG
+                    pipelines and agentic systems to novel graph neural network
+                    architectures for relational reasoning.
                 </p>
                 <p className="xl:text-xl lg:text-xl md:text-lg dark:text-gray-300 text-gray-600 text-center">
                     Always learning, always building.

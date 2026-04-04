@@ -31,6 +31,11 @@ const skills: Skill[] = [
     description:
       "Extending GitHub Copilot's capabilities through its SDK — building custom agents and integrations that plug into developer workflows.",
   },
+  {
+    title: "AI Research — GNNs",
+    description:
+      "Designing novel graph neural network architectures for relational reasoning — edge-centric dual attention, self-bootstrapped graph construction, and link prediction on real knowledge graphs.",
+  },
 ];
 
 export const Skills: FC = () => {
