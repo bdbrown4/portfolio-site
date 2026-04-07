@@ -14,7 +14,7 @@ const projects: Project[] = [
   {
     title: "DELTA",
     description:
-      "A novel graph neural network architecture where edges are first-class computational citizens. Features self-bootstrapped graph construction (no transformer scaffold needed), edge-to-edge attention, and a reconciliation bridge for cross-stream reasoning. 40 experiment phases, competitive link prediction on FB15k-237, and +24% noise robustness over standard GNNs. Building toward 'The Brain' — a self-constructing relational reasoning system.",
+      "A novel graph neural network architecture where edges are first-class computational citizens. Features self-bootstrapped graph construction (no transformer scaffold needed), edge-to-edge dual attention, and a reconciliation bridge for cross-stream reasoning. 51 experiment phases: LP MRR 0.4887 on FB15k-237, depth-scaling multi-hop champion (5p MRR 0.790 vs GraphGPS 0.690), self-bootstrap at 157% of fixed-chain baseline, and +24% noise robustness over standard GNNs.",
     tags: ["Python", "PyTorch", "Graph Neural Networks", "AI Research", "Knowledge Graphs"],
     repoUrl: "https://github.com/bdbrown4/DELTA",
     demoUrl: "https://bdbrown4.github.io/DELTA/",
@@ -207,7 +207,7 @@ export const Projects: FC = () => {
           AI Research
         </h2>
         <p className="mb-8 text-center text-sm dark:text-gray-400 text-gray-600">
-          A from-scratch AI architecture exploring whether edges deserve first-class attention — validated across 34 experiment phases with real-world knowledge graph data.
+          A from-scratch AI architecture exploring whether edges deserve first-class attention — validated across 51 experiment phases with real-world knowledge graph data.
         </p>
 
         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
@@ -219,14 +219,24 @@ export const Projects: FC = () => {
                 &ldquo;Reality is a graph. Language is a lossy compression of reality into sequences.&rdquo;
               </p>
             </div>
-            <a
-              href="https://github.com/bdbrown4/DELTA"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium dark:text-white text-gray-800 transition-colors hover:bg-white/20 border border-white/20 whitespace-nowrap"
-            >
-              <BsGithub /> Code
-            </a>
+            <div className="flex gap-2">
+              <a
+                href="https://bdbrown4.github.io/DELTA/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium dark:text-white text-gray-800 transition-colors hover:bg-white/20 border border-white/20 whitespace-nowrap"
+              >
+                <MdOpenInNew /> Docs
+              </a>
+              <a
+                href="https://github.com/bdbrown4/DELTA"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium dark:text-white text-gray-800 transition-colors hover:bg-white/20 border border-white/20 whitespace-nowrap"
+              >
+                <BsGithub /> Code
+              </a>
+            </div>
           </div>
 
           {/* Three-paradigm comparison */}
@@ -263,11 +273,11 @@ export const Projects: FC = () => {
           {/* Key results */}
           <div className="mb-6 grid gap-2 sm:grid-cols-5 text-center">
             {[
-              { icon: "🎯", label: "97.4% on FB15k-237", desc: "Outperforms CompGCN (96.9%)" },
-              { icon: "🔬", label: "34 Experiment Phases", desc: "Systematic validation" },
-              { icon: "⚡", label: "O(n^0.81) Scaling", desc: "Sub-linear via sparse COO" },
+              { icon: "🎯", label: "LP MRR 0.4887", desc: "Best on FB15k-237 link prediction" },
+              { icon: "🔬", label: "51 Experiment Phases", desc: "Systematic validation" },
+              { icon: "📈", label: "5p MRR 0.790", desc: "Advantage doubles per hop vs GraphGPS" },
               { icon: "🧪", label: "44/44 Tests Passing", desc: "Full backward compatibility" },
-              { icon: "🧠", label: "100% Compositional", desc: "Node GNNs plateau at 87.5%" },
+              { icon: "🧠", label: "Self-Bootstrap 157%", desc: "DELTA builds its own graph (Phase 39)" },
             ].map((r) => (
               <div key={r.label} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
                 <div className="text-lg">{r.icon}</div>
