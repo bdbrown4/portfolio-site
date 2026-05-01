@@ -14,7 +14,7 @@ const projects: Project[] = [
   {
     title: "DELTA",
     description:
-      "A novel graph neural network architecture where edges are first-class computational citizens. Features self-bootstrapped graph construction (no transformer scaffold needed), edge-to-edge dual attention, and a reconciliation bridge for cross-stream reasoning. 51 experiment phases: LP MRR 0.4887 on FB15k-237, depth-scaling multi-hop champion (5p MRR 0.790 vs GraphGPS 0.690), self-bootstrap at 157% of fixed-chain baseline, and +24% noise robustness over standard GNNs.",
+      "A novel graph neural network architecture elevating edges to first-class computational entities via edge-to-edge attention over multi-hop adjacency. Submitted to NeurIPS 2026. Achieves depth-monotonic compositional reasoning gains no node-centric baseline matches: +0.573/+0.290/+0.095 on synthetic structural benchmarks, 5-hop MRR 0.790 vs GraphGPS 0.690 on FB15k-237, and +24% noise robustness — with 31% fewer parameters than GraphGPS.",
     tags: ["Python", "PyTorch", "Graph Neural Networks", "AI Research", "Knowledge Graphs"],
     repoUrl: "https://github.com/bdbrown4/DELTA",
     demoUrl: "https://bdbrown4.github.io/DELTA/",
