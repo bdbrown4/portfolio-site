@@ -214,7 +214,7 @@ export const Projects: FC = () => {
           {/* Header */}
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h3 className="text-xl font-bold dark:text-white">DELTA — Dynamic Edge-and-Node Architecture with Layered, Tiered Attention</h3>
+              <h3 className="text-xl font-bold dark:text-white">DELTA — Dual Edge-Linked Transformer Architecture</h3>
               <p className="mt-1 text-sm dark:text-gray-400 text-gray-600">
                 &ldquo;Reality is a graph. Language is a lossy compression of reality into sequences.&rdquo;
               </p>
