@@ -17,6 +17,9 @@
 /out/
 next-env.d.ts
 
+# generated — copied from node_modules by postinstall
+/public/crypto-web-component.js
+
 # production
 /build
 
