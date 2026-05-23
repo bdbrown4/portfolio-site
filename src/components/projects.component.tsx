@@ -43,7 +43,7 @@ const projects: Project[] = [
   {
     title: "crypto-web-component",
     description:
-      "A self-contained custom element (~5 KB) that fetches live cryptocurrency prices via the Coinbase API — zero dependencies, Shadow DOM, CSS Parts API, and full TypeScript.",
+      "A self-contained custom element (~7 KB) that fetches live cryptocurrency prices via the Coinbase API — zero dependencies, Shadow DOM, CSS Parts API, and full TypeScript.",
     tags: ["Web Components", "TypeScript", "Shadow DOM", "Coinbase API"],
     repoUrl: "https://github.com/bdbrown4/crypto-web-component",
     demoUrl: "https://bdbrown4.github.io/crypto-web-component/",
@@ -193,7 +193,7 @@ export const Projects: FC = () => {
           {/* Key features */}
           <div className="mb-6 grid gap-2 sm:grid-cols-4 text-center">
             {[
-              { icon: "📦", label: "~5 KB", desc: "Minified bundle, zero deps" },
+              { icon: "📦", label: "~7 KB", desc: "Minified bundle, zero deps" },
               { icon: "🎨", label: "CSS Parts API", desc: "Style internals from outside" },
               { icon: "🔒", label: "Shadow DOM", desc: "Encapsulated styles & markup" },
               { icon: "⚡", label: "ES2020", desc: "Native async/await, no polyfills" },
