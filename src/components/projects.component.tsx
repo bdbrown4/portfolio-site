@@ -1,6 +1,12 @@
 import type { FC } from "react";
+import React from "react";
 import { BsGithub } from "react-icons/bs";
 import { MdOpenInNew } from "react-icons/md";
+
+type CryptoProps = React.HTMLAttributes<HTMLElement> & {
+  style?: React.CSSProperties & Record<`--cwc-${string}`, string>;
+};
+const CryptoWebComponent = "crypto-web-component" as unknown as React.ComponentType<CryptoProps>;
 
 interface Project {
   title: string;
@@ -37,9 +43,10 @@ const projects: Project[] = [
   {
     title: "crypto-web-component",
     description:
-      "A custom-built web component for displaying live cryptocurrency data — showcasing skills in native Web Components, shadow DOM, and real-time data fetching.",
-    tags: ["Web Components", "JavaScript", "Crypto API"],
+      "A self-contained custom element (~5 KB) that fetches live cryptocurrency prices via the Coinbase API — zero dependencies, Shadow DOM, CSS Parts API, and full TypeScript.",
+    tags: ["Web Components", "TypeScript", "Shadow DOM", "Coinbase API"],
     repoUrl: "https://github.com/bdbrown4/crypto-web-component",
+    demoUrl: "https://bdbrown4.github.io/crypto-web-component/",
   },
   {
     title: "NASA Picture of the Day",
@@ -121,6 +128,105 @@ export const Projects: FC = () => {
             github.com/bdbrown4
           </a>
         </p>
+      </section>
+
+      {/* ── Web Components: crypto-web-component deep-dive ── */}
+      <section className="w-full max-w-4xl px-4">
+        <h2 className="mb-4 text-center text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
+          Web Components
+        </h2>
+        <p className="mb-8 text-center text-sm dark:text-gray-400 text-gray-600">
+          A fully portable, framework-agnostic custom element — drop one tag into any app and get live crypto prices.
+        </p>
+
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+          {/* Header */}
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-xl font-bold dark:text-white">crypto-web-component</h3>
+              <p className="mt-1 text-sm dark:text-gray-400 text-gray-600">
+                One import. One tag. Live prices from Coinbase — no framework, no glue code.
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <a
+                href="https://bdbrown4.github.io/crypto-web-component/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium dark:text-white text-gray-800 transition-colors hover:bg-white/20 border border-white/20 whitespace-nowrap"
+              >
+                <MdOpenInNew /> Docs
+              </a>
+              <a
+                href="https://github.com/bdbrown4/crypto-web-component"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium dark:text-white text-gray-800 transition-colors hover:bg-white/20 border border-white/20 whitespace-nowrap"
+              >
+                <BsGithub /> Code
+              </a>
+            </div>
+          </div>
+
+          {/* Live demo: two themed instances */}
+          <div className="mb-6">
+            <p className="mb-4 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Live demos — try them</p>
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xs dark:text-gray-500 text-gray-500">Default</span>
+                <CryptoWebComponent />
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xs dark:text-gray-500 text-gray-500">Dark / Purple</span>
+                <CryptoWebComponent
+                  style={{
+                    "--cwc-container-bg": "#1a1d2e",
+                    "--cwc-form-bg": "#12141f",
+                    "--cwc-input-color": "#e6edf3",
+                    "--cwc-border-color": "#2e3250",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Key features */}
+          <div className="mb-6 grid gap-2 sm:grid-cols-4 text-center">
+            {[
+              { icon: "📦", label: "~5 KB", desc: "Minified bundle, zero deps" },
+              { icon: "🎨", label: "CSS Parts API", desc: "Style internals from outside" },
+              { icon: "🔒", label: "Shadow DOM", desc: "Encapsulated styles & markup" },
+              { icon: "⚡", label: "ES2020", desc: "Native async/await, no polyfills" },
+            ].map((f) => (
+              <div key={f.label} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <div className="text-lg">{f.icon}</div>
+                <div className="text-xs font-semibold dark:text-white mt-1">{f.label}</div>
+                <div className="text-xs dark:text-gray-400 text-gray-600">{f.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Usage snippet */}
+          <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
+            <p className="mb-2 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Usage — any framework</p>
+            <pre className="overflow-x-auto text-xs dark:text-gray-300 text-gray-700 leading-relaxed">
+              <code>{`import '@bdbrown4/crypto-web-component';
+
+// then anywhere in your template:
+<crypto-web-component></crypto-web-component>`}</code>
+            </pre>
+          </div>
+
+          {/* Tech stack */}
+          <div className="border-t border-white/10 pt-4">
+            <p className="mb-2 text-xs uppercase tracking-widest dark:text-gray-500 text-gray-500">Built with</p>
+            <div className="flex flex-wrap gap-2">
+              {["TypeScript", "Custom Elements v1", "Shadow DOM v1", "CSS Parts API", "Webpack 5", "Jest", "Coinbase API"].map((t) => (
+                <span key={t} className="rounded-full border border-white/20 px-3 py-1 text-xs dark:text-gray-300 text-gray-600">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ── AI Showcase: RAG vs Agentic deep-dive ── */}
