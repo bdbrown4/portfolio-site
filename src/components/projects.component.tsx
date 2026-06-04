@@ -61,7 +61,7 @@ export const Projects: FC = () => {
   return (
     <>
       {/* ── Featured Projects grid ── */}
-      <section className="w-full max-w-4xl px-4">
+      <section id="projects" className="w-full max-w-4xl px-4">
         <h2 className="mb-8 text-center text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
           Featured Projects
         </h2>

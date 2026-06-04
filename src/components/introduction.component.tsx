@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 export const Introduction: FC = () => {
     return (
@@ -15,6 +15,20 @@ export const Introduction: FC = () => {
                 <p className="xl:text-xl lg:text-xl md:text-lg dark:text-gray-300 text-gray-600 text-center">
                     Always learning, always building.
                 </p>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                    <a
+                        href="https://bdbrown4.github.io/bens-blog/"
+                        className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+                    >
+                        Read my blog
+                    </a>
+                    <a
+                        href="#projects"
+                        className="rounded-full border border-slate-400 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-700 hover:text-slate-900 dark:border-slate-500 dark:text-slate-200 dark:hover:border-slate-200 dark:hover:text-white"
+                    >
+                        View projects
+                    </a>
+                </div>
             </div>
         </>
     )

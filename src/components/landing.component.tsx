@@ -1,13 +1,19 @@
 import { useState } from "react";
 import type { FC } from "react";
 import { api } from "~/utils/api";
+import type { BlogFeedItem } from "~/server/blog-feed";
 import { DarkLightTheme } from "./dark-light-theme.component";
+import { BlogFeed } from "./blog-feed.component";
 import { Introduction } from "./introduction.component";
 import { Icon } from "./icons.component";
 import { Skills } from "./skills.component";
 import { Projects } from "./projects.component";
 
-export const Landing: FC = () => {
+interface LandingProps {
+    recentPosts: BlogFeedItem[];
+}
+
+export const Landing: FC<LandingProps> = ({ recentPosts }) => {
     const [toggleTheme, setToggleTheme] = useState(false);
     const { data, isLoading } = api.icon.getAll.useQuery();
     if (!data && isLoading) return <main className="bg-gradient-to-r from-gray-700 via-gray-900 to-black h-screen flex items-center justify-center"><div className="lds-hourglass"></div></main>;
@@ -20,6 +26,7 @@ export const Landing: FC = () => {
                 <div className="flex items-center justify-center gap-4">
                     <Icon icons={data} />
                 </div>
+                <BlogFeed posts={recentPosts} />
                 <Skills />
                 <Projects />
                 <footer className="pb-8 text-center text-xs dark:text-gray-500 text-gray-400">
