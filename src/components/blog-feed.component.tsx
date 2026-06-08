@@ -46,7 +46,7 @@ export const BlogFeed: FC<BlogFeedProps> = ({ posts }) => {
               <a
                 key={`${post.link}-${post.pubDate}`}
                 href={post.link}
-                className="group min-w-[280px] max-w-[320px] flex-1 snap-start rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/10"
+                className="group flex min-w-[280px] max-w-[320px] flex-1 snap-start flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/10"
               >
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                   {formatPostDate(post.pubDate)}
@@ -57,7 +57,7 @@ export const BlogFeed: FC<BlogFeedProps> = ({ posts }) => {
                 <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                   {truncate(post.description, 180)}
                 </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                <span className="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
                   Read post
                   <span aria-hidden="true">-&gt;</span>
                 </span>
