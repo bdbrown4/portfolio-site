@@ -9,7 +9,7 @@ interface HomeProps {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const recentPosts = await getRecentBlogPosts(5);
+  const recentPosts = await getRecentBlogPosts(3);
 
   return {
     props: {

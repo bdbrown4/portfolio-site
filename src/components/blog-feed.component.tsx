@@ -40,13 +40,12 @@ export const BlogFeed: FC<BlogFeedProps> = ({ posts }) => {
       </div>
 
       {posts.length > 0 ? (
-        <div className="-mx-4 overflow-x-auto px-4 pb-4">
-          <div className="flex snap-x snap-mandatory gap-4">
-            {posts.map((post) => (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {posts.map((post) => (
               <a
                 key={`${post.link}-${post.pubDate}`}
                 href={post.link}
-                className="group flex min-w-[280px] max-w-[320px] flex-1 snap-start flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/10"
+                className="group flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/10"
               >
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                   {formatPostDate(post.pubDate)}
@@ -63,7 +62,6 @@ export const BlogFeed: FC<BlogFeedProps> = ({ posts }) => {
                 </span>
               </a>
             ))}
-          </div>
         </div>
       ) : (
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm">
