@@ -49,6 +49,14 @@ const projects: Project[] = [
     demoUrl: "https://bdbrown4.github.io/crypto-web-component/",
   },
   {
+    title: "Webalo: Evolved Combat",
+    description:
+      "An original, open-source browser-based sci-fi FPS with zero asset files — every mesh generated procedurally in Three.js, every texture painted to canvas at runtime, and every sound synthesized with the Web Audio API. Features an 8-mission campaign with a drivable finale, 2-player co-op and 4-player deathmatch over peer-to-peer (Trystero), a daily challenge mode with seeded mutators, and five weapons across hitscan and projectile firing models — running entirely client-side in WebGL2.",
+    tags: ["JavaScript", "Three.js", "WebGL2", "Web Audio API", "Vite", "Procedural Generation"],
+    repoUrl: "https://github.com/bdbrown4/Webalo-Evolved-Combat",
+    demoUrl: "https://bdbrown4.github.io/Webalo-Evolved-Combat/",
+  },
+  {
     title: "NASA Picture of the Day",
     description:
       "An Android application that fetches and displays NASA's Astronomy Picture of the Day — built to explore mobile development and consume public REST APIs.",
